@@ -1,30 +1,14 @@
-
+import Home from "./Components/Home";
 import NavBar from "./Components/NavBar";
-import {  Outlet,  } from "react-router-dom";
-
-
-
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
- 
-
   return (
-    <div
-      className=""
-    >
-      <div className="">
-        <NavBar />
-      </div>
+    <div>
+      <NavBar />
+      <Home />
 
-      <div className="">
-        <Outlet />
-      </div>
-
-      {/* <div
-        className={`${userData ? "fixed" : "hidden"} relative h-[10%] lg:hidden`}
-      >
-        <NavBar />
-      </div> */}
+      {/* <Outlet /> */}
     </div>
   );
 };
