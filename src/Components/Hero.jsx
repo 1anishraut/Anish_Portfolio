@@ -3,6 +3,8 @@ import heyImage from "../assets/hey.webp";
 import { HiOutlineArrowDown } from "react-icons/hi";
 import cvFile from "../assets/Projects-Image/CV_Anish.pdf"; 
 
+
+
 const Hero = () => {
   return (
     <div id="hero" className="pt-10 relative">

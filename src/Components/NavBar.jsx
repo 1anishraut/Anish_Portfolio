@@ -21,31 +21,35 @@ const NavBar = () => {
       {/* Nav container */}
       <div
         className="flex justify-between items-center border border-gray-700 rounded-full py-2 px-4 
-        bg-[#00000000] backdrop-blur-sm transition-all duration-500"
+        bg-[#0000008c] backdrop-blur-sm transition-all duration-500"
       >
         {/* Left logo */}
         <ScrollLink to="hero" smooth={true} duration={600} offset={-70}>
-          <h1 className="logo border border-red-600 rounded-full px-2 py-2 text-red-600 font-bold">
+          <h1 className="logo border border-red-700 rounded-full px-2 py-2 text-red-700 font-bold">
             {isScrolled ? "<A/>" : "< ANISH / >"}
           </h1>
         </ScrollLink>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex gap-4">
+        <div className="hidden lg:flex gap-4">
           <ScrollLink
-            to="services"
+            to="about"
             smooth={true}
             duration={600}
             offset={-70}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
-            Services
+            About
           </ScrollLink>
           <ScrollLink
             to="projects"
             smooth={true}
             duration={600}
             offset={-70}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
             Projects
@@ -55,24 +59,30 @@ const NavBar = () => {
             smooth={true}
             duration={600}
             offset={-70}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
             Skills
           </ScrollLink>
           <ScrollLink
-            to="about"
+            to="services"
             smooth={true}
             duration={600}
             offset={-70}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
-            About
+            Services
           </ScrollLink>
           <ScrollLink
             to="contact"
             smooth={true}
             duration={600}
             offset={-70}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
             Contact
@@ -82,7 +92,7 @@ const NavBar = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden border border-gray-700 rounded-full px-3 py-2"
+          className="lg:hidden border border-gray-700 rounded-full px-3 py-2 "
         >
           {menuOpen ? "✕" : "☰"}
         </button>
@@ -91,18 +101,20 @@ const NavBar = () => {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <div
-          className="flex flex-col gap-2 mt-2 md:hidden border border-gray-700 rounded-2xl p-4 
+          className="flex flex-col gap-2 mt-2 lg:hidden border border-gray-700 rounded-2xl p-4 
           bg-black/40 backdrop-blur-md"
         >
           <ScrollLink
-            to="services"
+            to="about"
             smooth={true}
             duration={600}
             offset={-70}
             onClick={() => setMenuOpen(false)}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
-            Services
+            About
           </ScrollLink>
           <ScrollLink
             to="projects"
@@ -110,6 +122,8 @@ const NavBar = () => {
             duration={600}
             offset={-70}
             onClick={() => setMenuOpen(false)}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
             Projects
@@ -120,19 +134,24 @@ const NavBar = () => {
             duration={600}
             offset={-70}
             onClick={() => setMenuOpen(false)}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
             Skills
           </ScrollLink>
+
           <ScrollLink
-            to="about"
+            to="services"
             smooth={true}
             duration={600}
             offset={-70}
             onClick={() => setMenuOpen(false)}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
-            About
+            Services
           </ScrollLink>
           <ScrollLink
             to="contact"
@@ -140,6 +159,8 @@ const NavBar = () => {
             duration={600}
             offset={-70}
             onClick={() => setMenuOpen(false)}
+            spy={true}
+            activeClass="text-red-700 font-semibold"
             className="border border-gray-700 rounded-full px-4 py-2 cursor-pointer"
           >
             Contact

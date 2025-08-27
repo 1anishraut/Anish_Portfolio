@@ -13,15 +13,33 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { FaReact, FaNodeJs } from "react-icons/fa6";
 import { RiNextjsFill } from "react-icons/ri";
 import { TbBrandFramerMotion } from "react-icons/tb";
+import { motion } from "framer-motion";
+import { FaBootstrap } from "react-icons/fa";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // ⏳ delay between icons
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
 const Skills = () => {
   return (
-    <div id="skills"
+    <div
+      id="skills"
       style={{ backgroundImage: `url(${bg})` }}
       className="w-full min-h-[500px] bg-cover bg-center flex flex-col items-center gap-2 py-15 "
     >
       {/* Heading */}
-      <div className="flex flex-col items-center gap-2 mb-12">
+      <div className="flex flex-col items-center gap-2 mb-12 px-2">
         <h2 className="text-4xl md:text-7xl font-bold">[ SKILLS ]</h2>
         <p className="text-red-900 flex flex-col md:flex-row items-center gap-4 text-center text-xl">
           Powered by coffee, Wi-Fi, and questionable decisions
@@ -29,53 +47,57 @@ const Skills = () => {
         </p>
       </div>
 
-      {/* Icons Grid */}
-      <div className="grid grid-cols-3 md:grid-cols-5 gap-8 text-center text-white">
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <FaHtml5 className="text-3xl md:text-6xl text-white group-hover:text-orange-600" />
-          <p>HTML5</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <FaCss3Alt className="text-3xl md:text-6xl text-white group-hover:text-blue-600" />
-          <p>CSS3</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <SiTailwindcss className="text-3xl md:text-6xl text-white group-hover:text-sky-400" />
-          <p>Tailwind</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <IoLogoJavascript className="text-3xl md:text-6xl text-white group-hover:text-yellow-400" />
-          <p>JavaScript</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <FaReact className="text-3xl md:text-6xl text-white group-hover:text-cyan-400" />
-          <p>React</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <RiNextjsFill className="text-3xl md:text-6xl text-white group-hover:text-gray-200" />
-          <p>Next.js</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <FaNodeJs className="text-3xl md:text-6xl text-white group-hover:text-green-600" />
-          <p>Node.js</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <SiExpress className="text-3xl md:text-6xl text-white group-hover:text-gray-400" />
-          <p>Express</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <SiMongodb className="text-3xl md:text-6xl text-white group-hover:text-green-500" />
-          <p>MongoDB</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <SiAdobeillustrator className="text-3xl md:text-6xl text-white group-hover:text-orange-500" />
-          <p>Illustrator</p>
-        </div>
-        <div className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200">
-          <TbBrandFramerMotion className="text-3xl md:text-6xl text-white group-hover:text-yellow-500" />
-          <p>Framer Motion</p>
-        </div>
-      </div>
+      {/* Icons Grid with Animation */}
+      <motion.div
+        className="grid grid-cols-3 md:grid-cols-5 gap-8 text-center text-white"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        // viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        {[
+          { Icon: FaHtml5, label: "HTML5", hover: "text-orange-600" },
+          { Icon: FaCss3Alt, label: "CSS3", hover: "text-blue-600" },
+          { Icon: SiTailwindcss, label: "Tailwind", hover: "text-sky-400" },
+          {
+            Icon: IoLogoJavascript,
+            label: "JavaScript",
+            hover: "text-yellow-400",
+          },
+          { Icon: FaReact, label: "React", hover: "text-cyan-400" },
+          { Icon: RiNextjsFill, label: "Next.js", hover: "text-gray-200" },
+          { Icon: FaNodeJs, label: "Node.js", hover: "text-green-600" },
+          { Icon: SiExpress, label: "Express", hover: "text-gray-400" },
+          { Icon: SiMongodb, label: "MongoDB", hover: "text-green-500" },
+          {
+            Icon: SiAdobeillustrator,
+            label: "Illustrator",
+            hover: "text-orange-500",
+          },
+          {
+            Icon: TbBrandFramerMotion,
+            label: "Framer Motion",
+            hover: "text-yellow-500",
+          },
+          {
+            Icon: FaBootstrap,
+            label: "Bootstrap 5",
+            hover: "text-purple-500",
+          },
+        ].map(({ Icon, label, hover }, index) => (
+          <motion.div
+            key={index}
+            variants={item}
+            className="group flex flex-col items-center gap-2 hover:scale-110 transition-transform duration-200"
+          >
+            <Icon
+              className={`text-3xl md:text-6xl text-white group-hover:${hover}`}
+            />
+            <p>{label}</p>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 };

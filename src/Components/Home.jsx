@@ -7,6 +7,7 @@ import Services from "./Services";
 import FollowMe from "./FollowMe";
 import Footer from "./Footer";
 import ContactForm from "./ContactForm";
+import PopUp from "./PopUp";
 
 const Home = () => {
   return (
@@ -18,7 +19,8 @@ const Home = () => {
       <Services />
       <FollowMe />
       <ContactForm/>
-      <Footer/>
+      <Footer />
+      <PopUp/>
     </div>
   );
 };
