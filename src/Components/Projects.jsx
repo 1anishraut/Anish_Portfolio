@@ -26,7 +26,7 @@ const projectData = [
   {
     id: 1,
     title: "ProConnect (Social Platform)",
-    link: "http://51.20.37.224/login",
+    link: "https://13.61.104.41/login",
     tech: [
       "Node.js",
       "MongoDB",
